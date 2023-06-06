@@ -17,7 +17,7 @@ object_count = np.array([[person_count, bicycle_count, car_count, motor_count, b
 time = []
 frames = [0]
 
-with open('objects_tramo2.csv') as csv_file:
+with open('objects.csv') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
     for row in csv_reader:
         row_count += 1
