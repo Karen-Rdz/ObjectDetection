@@ -20,6 +20,8 @@ frames = [0]
 with open('objects.csv') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
     for row in csv_reader:
+        if not any(row):
+            continue
         row_count += 1
         if row_count != 1:
             if row[0] != frame_count: 
@@ -82,8 +84,8 @@ with open('objects.csv') as csv_file:
     seconds += 1
     time.append(str(seconds))
 
-print("person, bycicle, car, motorbike, bus, train, truck, trafic light, fire hydrant, stop sign, parking meter")
-print(object_count)
+# print("person, bycicle, car, motorbike, bus, train, truck, trafic light, fire hydrant, stop sign, parking meter")
+# print(object_count)
 
 # Variables
 suma = np.sum(object_count, axis=0)
@@ -150,6 +152,12 @@ for i in range(len(sum_objects)):
 
     var_objects = statistics.variance(object_count[:, i])
     print("Variance: ", var_objects)
+
+# ------------------ TOTAL COUNT --------------------
+print('\n')
+print("----Total count:----")
+print(names)
+print(sum_objects)
 
 # ------------------ GRAPHS --------------------
 # ------- Bar Plot -------
